@@ -1,4 +1,5 @@
 const MyMessage = ({ message }) => {
+    // check if the message is the image type to render
     if (message?.attachments?.length > 0) {
         return (
             <img src={message.attachments[0].file}
@@ -9,10 +10,10 @@ const MyMessage = ({ message }) => {
         )
     }
     return (
-        <div>
-            MessageFORM
+        <div className="message" style={{ float: 'right', marginRight: '18px', color: 'white', backgroundColor: '#3B2A50' }}>
+            {message.text}
         </div>
-    )
+    );
 }
 
 export default MyMessage;

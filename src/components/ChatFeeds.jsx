@@ -3,15 +3,14 @@ import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 
 
-const ChatFeed = (props) => {
+const ChatFeeds = (props) => {
     const { chats, activeChat, userName, messages } = props;
     const chat = chats && chats[activeChat];
 
     const renderMessages = () => {
         const keys = Object.keys(messages);
-        console.log(keys);
         return keys.map((key, index) => {
-            const message = message[key];
+            const message = messages[key];
             const lastMessageKey = index === 0 ? null : keys[index - 1];
             const isMyMessage = userName === message.sender.username;
 
@@ -52,4 +51,4 @@ const ChatFeed = (props) => {
     )
 }
 
-export default ChatFeed;
+export default ChatFeeds;
