@@ -225,23 +225,58 @@
 }
 
 .input {
-  color: #333;
-  font-size: 1.2rem;
-	margin: 0 auto;
-  padding: 1.5rem 2rem;
-  border-radius: 0.2rem;
-  background-color: rgb(255, 255, 255);
-  border: none;
-  width: 90%;
+outline: none;
+overflow: hidden;
+margin: 0;
+width: 100%;
+padding: 0.25rem 0;
+background: none;
+color: white;
+font-size: 1.2rem;
+font-weight: bold;
+}
+::-webkit-input-placeholder {
+  color: wheat;
+}
+
+.field {
+  width: 100%;
+  position: relative;
+  margin: 4rem auto 1rem;
+}
+
+.field::after {
+  content: "";
+  position: relative;
   display: block;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-  outline: none;
-  margin-bottom: 25px;
+  height: 4px;
+  width: 100%;
+  background: #6111c8;
+  transform: scaleX(0);
+  transform-origin: 0%;
+  transition: transform 500ms ease;
+  top:2x;
+}
+
+.toggle_password {
+  position: absolute;
+  cursor: help;
+  font-size: 0.8rem;
+  right: 0.25rem;
+  bottom: 0.5rem;
+}
+
+/* active when child has focus */
+.fields:focus-within{
+  border-color: transparent;
+}
+
+.field:focus-within::after{
+  transform: scaleX(1);
 }
 
 .form {
-  width: 400px;
+  width: 300px;
 }
 
 .title {

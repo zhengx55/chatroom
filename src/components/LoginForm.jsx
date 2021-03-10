@@ -5,6 +5,7 @@ const LoginForm = () => {
     const [userName, setUsername] = useState('');
     const [passWord, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -27,8 +28,16 @@ const LoginForm = () => {
             <div className="form">
                 <h1 className="title"> Welcome to the Chat Application</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" value={userName} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="username" required />
-                    <input type="text" value={passWord} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="password" required />
+                    <div className="field">
+                        <input type="text" value={userName} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="username" required />
+                    </div>
+                    <div className="field">
+                        <input type={showPassword ? 'text' : 'password'} value={passWord} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="password" required />
+                        <span className="toggle-password" onMouseEnter={() => setShowPassword(true)} onMouseLeave={() => setShowPassword(false)}>
+                            {showPassword ? 'Hide' : 'Show'}
+
+                        </span>
+                    </div>
                     <div align="center">
                         <button type="submit" className="button">
                             <span>Start Chatting</span>
